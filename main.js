@@ -12,12 +12,17 @@ const {createApp} = Vue
 createApp({
     data(){
         return{
-            email: "",
+            email: [],
         }
     },
     mounted(){
         axios.get("https://flynn.boolean.careers/exercises/api/random/mail").then((result) =>{
-            this.email = result.data.response
+            
+            for(i = 0; i <= 10; i++){
+                this.email.push(result.data.response)
+            }
+            
+
         })
     }
 }).mount("#app")
